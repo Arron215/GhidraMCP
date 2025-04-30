@@ -110,14 +110,14 @@ public class GhidraMCPPlugin extends Plugin {
         server.createContext("/methods", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit  = parseIntOrDefault(qparams.get("limit"),  100);
+            int limit  = parseIntOrDefault(qparams.get("limit"),  1000);
             sendResponse(exchange, getAllFunctionNames(offset, limit));
         });
 
         server.createContext("/classes", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit  = parseIntOrDefault(qparams.get("limit"),  100);
+            int limit  = parseIntOrDefault(qparams.get("limit"),  1000);
             sendResponse(exchange, getAllClassNames(offset, limit));
         });
 
@@ -151,35 +151,35 @@ public class GhidraMCPPlugin extends Plugin {
         server.createContext("/segments", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit  = parseIntOrDefault(qparams.get("limit"),  100);
+            int limit  = parseIntOrDefault(qparams.get("limit"),  1000);
             sendResponse(exchange, listSegments(offset, limit));
         });
 
         server.createContext("/imports", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit  = parseIntOrDefault(qparams.get("limit"),  100);
+            int limit  = parseIntOrDefault(qparams.get("limit"),  1000);
             sendResponse(exchange, listImports(offset, limit));
         });
 
         server.createContext("/exports", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit  = parseIntOrDefault(qparams.get("limit"),  100);
+            int limit  = parseIntOrDefault(qparams.get("limit"),  1000);
             sendResponse(exchange, listExports(offset, limit));
         });
 
         server.createContext("/namespaces", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit  = parseIntOrDefault(qparams.get("limit"),  100);
+            int limit  = parseIntOrDefault(qparams.get("limit"),  1000);
             sendResponse(exchange, listNamespaces(offset, limit));
         });
 
         server.createContext("/data", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit  = parseIntOrDefault(qparams.get("limit"),  100);
+            int limit  = parseIntOrDefault(qparams.get("limit"),  1000);
             sendResponse(exchange, listDefinedData(offset, limit));
         });
 
@@ -187,7 +187,7 @@ public class GhidraMCPPlugin extends Plugin {
             Map<String, String> qparams = parseQueryParams(exchange);
             String searchTerm = qparams.get("query");
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit = parseIntOrDefault(qparams.get("limit"), 100);
+            int limit = parseIntOrDefault(qparams.get("limit"), 1000);
             sendResponse(exchange, searchFunctionsByName(searchTerm, offset, limit));
         });
 
@@ -313,7 +313,7 @@ public class GhidraMCPPlugin extends Plugin {
             Map<String, String> qparams = parseQueryParams(exchange);
             String address = qparams.get("address");
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit = parseIntOrDefault(qparams.get("limit"), 100);
+            int limit = parseIntOrDefault(qparams.get("limit"), 1000);
             sendResponse(exchange, getXrefsTo(address, offset, limit));
         });
 
@@ -321,7 +321,7 @@ public class GhidraMCPPlugin extends Plugin {
             Map<String, String> qparams = parseQueryParams(exchange);
             String address = qparams.get("address");
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit = parseIntOrDefault(qparams.get("limit"), 100);
+            int limit = parseIntOrDefault(qparams.get("limit"), 1000);
             sendResponse(exchange, getXrefsFrom(address, offset, limit));
         });
 
@@ -329,14 +329,14 @@ public class GhidraMCPPlugin extends Plugin {
             Map<String, String> qparams = parseQueryParams(exchange);
             String name = qparams.get("name");
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit = parseIntOrDefault(qparams.get("limit"), 100);
+            int limit = parseIntOrDefault(qparams.get("limit"), 1000);
             sendResponse(exchange, getFunctionXrefs(name, offset, limit));
         });
 
         server.createContext("/strings", exchange -> {
             Map<String, String> qparams = parseQueryParams(exchange);
             int offset = parseIntOrDefault(qparams.get("offset"), 0);
-            int limit = parseIntOrDefault(qparams.get("limit"), 100);
+            int limit = parseIntOrDefault(qparams.get("limit"), 1000);
             String filter = qparams.get("filter");
             sendResponse(exchange, listDefinedStrings(offset, limit, filter));
         });
